@@ -1,0 +1,11 @@
+{
+  "name": "forge_mod_dev",
+  "dockerComposeFile": "compose.yaml",
+  "service": "mod",
+  "workspaceFolder": "/usr/local/proj",
+  "customizations": {
+    "vscode": {
+      "extensions": ["esbenp.prettier-vscode", "vscjava.vscode-java-pack"]
+    }
+  }
+}
