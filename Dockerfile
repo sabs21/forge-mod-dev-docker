@@ -10,10 +10,9 @@ RUN apt-get update \
     && wget -P /usr/local "https://download.oracle.com/java/17/archive/jdk-17.0.9_linux-x64_bin.deb" \
     && dpkg -i /usr/local/jdk-17.0.9_linux-x64_bin.deb \
     && apt-get install -f -y \
-    && rm /usr/local/jdk-17.0.9_linux-x64_bin.deb \
-    && cd /usr/local/proj \
-    && ./gradlew build
+    && rm /usr/local/jdk-17.0.9_linux-x64_bin.deb
 
 WORKDIR /usr/local/proj
+RUN ./gradlew build
 # Keep container running (for use in VSCode)
 CMD [ "tail", "-f", "/dev/null" ]
