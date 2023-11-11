@@ -1,7 +1,7 @@
 {
   "name": "forge_mod_dev",
   "dockerComposeFile": "compose.yaml",
-  "service": "mod",
+  "service": "dev",
   "workspaceFolder": "/usr/local/proj",
   "customizations": {
     "vscode": {
