@@ -7,7 +7,7 @@ services:
     volumes:
       - mod_build:/usr/local/proj/build/libs
   server:
-    container_name: mc-dev-server
+    container_name: mc-server
     image: itzg/minecraft-server
     tty: true
     stdin_open: true
