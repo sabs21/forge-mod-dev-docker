@@ -1,6 +1,11 @@
 ![docker forge](https://github.com/sabs21/forge-mod-dev-docker/assets/18126892/4308de19-b1e1-474a-8e02-3c2094733700)
 # Dockerized Minecraft Forge Mod Development
-Develop Minecraft Forge mods in a dockerized dev environment
+Develop Minecraft Forge mods without worrying about dependencies when collaborating with others.
+## How it works
+![docker forge diagram](https://github.com/sabs21/forge-mod-dev-docker/assets/18126892/22a1621c-9fe9-4053-9aab-29f15a21536c)
+- `mc-dev` is where mod development happens. Uses the forge MDK.
+- `mc-server` is where your minecraft server lives. Your mod will sync to the server's mods folder on performing `gradlew build` within the `mc-dev` container. You'll need to restart the `mc-server` container to see changes take effect.
+- `mod-build` contains the compiled mod resulting from running `gradlew build`. On running `copy_mod_to_client.bat`, the contents of this volume gets transferred to your Minecraft mods folder.
 ## Requirements
 1.  [Visual Studio Code](https://code.visualstudio.com/)
     -   Install extension: [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
