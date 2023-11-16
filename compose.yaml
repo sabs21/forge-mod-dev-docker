@@ -2,11 +2,12 @@ services:
   dev:
     build:
       context: .
+      args:
+        MC_VERSION: ${MC_VERSION}
+        FORGE_VERSION: ${FORGE_VERSION}
       dockerfile: Dockerfile
     container_name: mc-dev
-    environment:
-      MC_VERSION: ${MC_VERSION}
-      FORGE_VERSION: ${FORGE_VERSION}
+    env_file: .env
     volumes:
       - mod_build:/usr/local/proj/build/libs
   server:
