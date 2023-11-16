@@ -4,6 +4,9 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: mc-dev
+    environment:
+      MC_VERSION: ${MC_VERSION}
+      FORGE_VERSION: ${FORGE_VERSION}
     volumes:
       - mod_build:/usr/local/proj/build/libs
   server:
