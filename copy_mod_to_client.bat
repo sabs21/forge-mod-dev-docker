@@ -23,7 +23,6 @@ exit
 
 :dockerSuccess
 echo Docker is running.
-pause
 
 set containerName="mc-dev"
 set serviceName="dev"
@@ -52,7 +51,6 @@ docker compose start %serviceName%
 
 :containerSuccess
 echo Development container %containerName% is running.
-pause
 
 set volumeName=mod-build
 set minecraftModsPath="%userprofile%\AppData\Roaming\.minecraft\mods"
