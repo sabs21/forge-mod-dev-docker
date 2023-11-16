@@ -23,6 +23,8 @@ Develop Minecraft Forge mods without worrying about dependencies when collaborat
 7. Wait for everything to build! This may take between 2-10 minutes depending on your internet speeds and PC specs.
 8. Once complete, you should have a running Minecraft server with VS Code displaying the contents of the Forge MDK from the `mc-dev` container.
 
+NOTE: If you don't want to use VS Code, then use `docker compose up` in the repo folder to build all Docker containers.
+
 ## Building/Compiling your mod
 Execute `gradlew build` within the `mc-dev` container. You will need to restart your `mc-server` container to see changes take effect.
 
