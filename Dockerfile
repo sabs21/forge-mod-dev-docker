@@ -3,7 +3,6 @@ RUN apt-get update \
     && apt-get install -y wget \
     && apt-get install -y unzip \
     && mkdir /usr/local/proj \
-    && mkdir /usr/local/proj/mods \
     && wget -P /usr/local/proj "https://maven.minecraftforge.net/net/minecraftforge/forge/$MC_VERSION-$FORGE_VERSION/forge-$MC_VERSION-$FORGE_VERSION-mdk.zip" \
     && unzip /usr/local/proj/forge-$MC_VERSION-$FORGE_VERSION-mdk.zip -d /usr/local/proj \
     && rm /usr/local/proj/forge-$MC_VERSION-$FORGE_VERSION-mdk.zip \
