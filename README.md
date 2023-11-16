@@ -13,6 +13,7 @@ Develop Minecraft Forge mods without worrying about dependencies when collaborat
 3.  [Minecraft](https://www.minecraft.net/en-us/download)
 4.  [Forge](https://files.minecraftforge.net/net/minecraftforge/forge/)
 5.  Windows 10/11
+6.  4 GB of free space
 ## Steps
 1. Install all requirements.
 2. Clone this repo.
@@ -40,3 +41,6 @@ Within your Minecraft client...
 3. Name the server and set Server Address to 127.0.0.1:25565
 4. Click 'Done'
 5. When the `mc-server` container is running, you should be able to connect to your server. Make sure that you've run `copy_mod_to_client.bat` to sync your client's mods folder with the server's mods.
+
+## Closing Docker
+To close the development containers, you can either close each container through Docker Desktop or perform `CTRL + C` within the container terminal in VS Code.
