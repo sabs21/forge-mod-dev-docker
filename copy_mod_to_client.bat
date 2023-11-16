@@ -56,9 +56,7 @@ set volumeName=mod-build
 set minecraftModsPath="%userprofile%\AppData\Roaming\.minecraft\mods"
 
 echo Copying mod files to client minecraft mods folder...
-:: https://stackoverflow.com/questions/35406213/how-to-copy-data-from-docker-volume-to-host
 cd %minecraftModsPath%
-::docker ps -aqf "name=%containerName%"
 for /f %%i in ('docker run -d -v %volumeName%:/%volumeName% busybox true') do (
 	docker cp %%i:/%volumeName% ./
 	docker rm %%i
