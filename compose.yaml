@@ -5,6 +5,9 @@ services:
       args:
         MC_VERSION: ${MC_VERSION}
         FORGE_VERSION: ${FORGE_VERSION}
+        REPO: ${REPO}
+      ssh:
+        - default
       dockerfile: Dockerfile
     container_name: mc-dev
     env_file: .env
