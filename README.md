@@ -14,15 +14,18 @@ Develop Minecraft Forge mods without worrying about dependencies when collaborat
 4.  [Forge](https://files.minecraftforge.net/net/minecraftforge/forge/)
 5.  Windows 10/11
 6.  4 GB of free space
+### Optional
+1. If using your own repository, you must [setup connecting with SSH through GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
 ## Steps
 1. Install all requirements.
 2. Clone this repo.
 3. Open Docker Desktop and VS Code.
 4. In VS Code, open into the cloned repo folder.
-5. Adjust the Minecraft and Forge versions in the `.env` file to suit your needs.
-6. In VS Code, hit F1 and select "Dev Containers: Reopen in Container".
-7. Wait for everything to build! This may take between 2-10 minutes depending on your internet speeds and PC specs.
-8. Once complete, you should have a running Minecraft server with VS Code displaying the contents of the Forge MDK from the `mc-dev` container.
+5. Rename `.env.example` to `.env`.
+6. In `.env`, set both the minecraft version and forge version. If you want to use an existing Forge MDK based repo, setup SSH through GitHub (see optional step 1), then supply your repo's ssh url to the repo variable.
+7. In VS Code, hit F1 and select "Dev Containers: Reopen in Container".
+8. Wait for everything to build! This may take between 2-10 minutes depending on your internet speeds and PC specs.
+9. Once complete, you should have a running Minecraft server with VS Code displaying the contents of the Forge MDK from the `mc-dev` container.
 
 NOTE: If you don't want to use VS Code, then use `docker compose up` in the repo folder to build all Docker containers.
 
