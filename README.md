@@ -15,7 +15,7 @@ Develop Minecraft Forge mods without worrying about dependencies when collaborat
 5.  Windows 10/11
 6.  4 GB of free space
 ### Optional
-1. If using your own repository, you must [setup connecting with SSH through GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh).
+1. If using your own repository, you must [setup connecting with SSH through GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh). Make sure to start the SSH agent via `ssh-agent -s` if working in the VS Code terminal.
 ## Steps
 1. Install all requirements.
 2. Clone this repo.
