@@ -16,7 +16,8 @@ Develop Minecraft Forge mods without worrying about dependencies when collaborat
 6.  4 GB of free space
 ### Optional
 1. If using your own repository, you must [setup connecting with SSH through GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh). Start the SSH agent via `ssh-agent -s` before building the containers.
-2.     IMPORTANT: You must call 'docker compose up' from powershell with your ssh-agent running to clone your git repo on build. After your container is built, you must call 'docker compose up' within git bash to forward the ssh-agent into the containers to push/pull to GitHub.
+
+IMPORTANT: You must call 'docker compose up' from powershell with your ssh-agent running to clone your git repo on build. After your container is built, you must call 'docker compose up' within git bash to forward the ssh-agent into the containers to push/pull to GitHub.
 ## Steps
 1. Install all requirements.
 2. Clone this repo.
