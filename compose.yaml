@@ -2,17 +2,22 @@ services:
   dev:
     build:
       context: .
+      ssh:
+        - default
       args:
         MC_VERSION: ${MC_VERSION}
         FORGE_VERSION: ${FORGE_VERSION}
         REPO: ${REPO}
-      ssh:
-        - default
       dockerfile: Dockerfile
+    environment:
+      MC_VERSION: ${MC_VERSION}
+      FORGE_VERSION: ${FORGE_VERSION}
+      REPO: ${REPO}
+      SSH_AUTH_SOCK: $SSH_AUTH_SOCK
     container_name: mc-dev
-    env_file: .env
     volumes:
       - mod_build:/usr/local/proj/build/libs
+      - $SSH_AUTH_SOCK:$SSH_AUTH_SOCK
   server:
     container_name: mc-server
     image: itzg/minecraft-server
