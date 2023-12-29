@@ -52,7 +52,7 @@ docker compose start %serviceName%
 :containerSuccess
 echo Development container %containerName% is running.
 
-set volumeName=mod-build
+set volumeName=builds
 set minecraftModsPath="%userprofile%\AppData\Roaming\.minecraft\mods"
 
 echo Copying mod files to client minecraft mods folder...

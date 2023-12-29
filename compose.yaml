@@ -33,4 +33,4 @@ services:
         read_only: true
 volumes:
   mod_build:
-    name: mod-build
+    name: builds
