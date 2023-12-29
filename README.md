@@ -1,11 +1,12 @@
 ![docker forge](https://github.com/sabs21/forge-mod-dev-docker/assets/18126892/4308de19-b1e1-474a-8e02-3c2094733700)
 # Dockerized Minecraft Forge Mod Development
-Develop Minecraft Forge mods without worrying about dependencies when collaborating with others.
+A Minecraft Forge mod development environment that aims to make collaborating between developers easier.
 ## How it works
-![docker forge diagram edited](https://github.com/sabs21/forge-mod-dev-docker/assets/18126892/06e42696-ee18-4a4f-9bf9-8bd34ea6c70a)
+![forge-docker-mod-dev-diagram](https://github.com/sabs21/forge-mod-dev-docker/assets/18126892/cd2beef5-bd0f-423e-9c4a-b56dc4ea94fd)
+- The contents of `com` are bound to the `/usr/local/proj/src/main/java/com` folder in the container. This means editing the source code within the container will also edit the source code on your machine. Since git will pick up on these changes, you can manage git version control outside of Docker.
 - `mc-dev` is where mod development happens. Uses the forge MDK.
 - `mc-server` is where your minecraft server lives. Your mod will sync to the server's mods folder on performing `./gradlew build` within the `mc-dev` container. You'll need to restart the `mc-server` container to see changes take effect.
-- `mod-build` contains the compiled mod resulting from running `./gradlew build`. On running `copy_mod_to_client.bat`, the contents of this volume gets transferred to your Minecraft mods folder.
+- `builds` contains the compiled mod resulting from running `./gradlew build`. On running `copy_mod_to_client.bat`, the contents of this volume gets transferred to your Minecraft mods folder.
 ## Requirements
 1.  [Visual Studio Code](https://code.visualstudio.com/)
     -   Install extension: [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
@@ -14,22 +15,22 @@ Develop Minecraft Forge mods without worrying about dependencies when collaborat
 4.  [Forge](https://files.minecraftforge.net/net/minecraftforge/forge/)
 5.  Windows 10/11
 6.  4 GB of free space
-### Optional
-1. If using your own repository, you must [setup connecting with SSH through GitHub](https://docs.github.com/en/authentication/connecting-to-github-with-ssh). Start the SSH agent via `ssh-agent -s` before building the containers.
-
-IMPORTANT: You must call 'docker compose up' from powershell with your ssh-agent running to clone your git repo on build. After your container is built, you must call 'docker compose up' within git bash to forward the ssh-agent into the containers to push/pull to GitHub.
 ## Steps
 1. Install all requirements.
 2. Clone this repo.
-3. Open Docker Desktop and VS Code.
-4. In VS Code, open into the cloned repo folder.
-5. Rename `.env.example` to `.env`.
-6. In `.env`, set both the minecraft version and forge version. If you want to use an existing Forge MDK based repo, setup SSH through GitHub (see optional step 1), then supply your repo's ssh url to the repo variable.
-7. In VS Code, hit F1 and select "Dev Containers: Reopen in Container".
-8. Wait for everything to build! This may take between 2-10 minutes depending on your internet speeds and PC specs.
-9. Once complete, you should have a running Minecraft server with VS Code displaying the contents of the Forge MDK from the `mc-dev` container.
+3. Place existing source code (located in `/src/main/java/com` within the forge MDK) you may have into the `com` folder. This will be copied into the development container on build. 
+4. Open Docker Desktop and VS Code.
+5. In VS Code, open into the cloned repo folder.
+6. Rename `.env.example` to `.env`.
+7. In `.env`, set both the minecraft version and forge version.
+8. In VS Code, hit F1 and select "Dev Containers: Reopen in Container".
+9. Wait for everything to build! This may take between 2-10 minutes depending on your internet speeds and PC specs.
+10. Once complete, you should have a running Minecraft server with VS Code displaying the contents of the Forge MDK from the `mc-dev` container.
 
 NOTE: If you don't want to use VS Code, then use `docker compose up` in the repo folder to build all Docker containers.
+
+## Using Git
+The `com` folder will reflect any changes made within the `/usr/local/proj/src/main/java/com` folder in the Docker container. This allows you to perform git actions on your host machine, completely outside of Docker.
 
 ## Building/Compiling your mod
 Execute `gradlew build` within the `mc-dev` container. You will need to restart your `mc-server` container to see changes take effect.
