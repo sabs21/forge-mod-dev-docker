@@ -5,14 +5,15 @@ services:
       args:
         MC_VERSION: ${MC_VERSION}
         FORGE_VERSION: ${FORGE_VERSION}
-        REPO: ${REPO}
-      ssh:
-        - default
       dockerfile: Dockerfile
     container_name: mc-dev
-    env_file: .env
     volumes:
-      - mod_build:/usr/local/proj/build/libs
+      - type: volume
+        source: mod_build
+        target: /usr/local/proj/build/libs
+      - type: bind
+        source: ./com
+        target: /usr/local/proj/src/main/java/com
   server:
     container_name: mc-server
     image: itzg/minecraft-server
