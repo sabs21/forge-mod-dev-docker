@@ -1,5 +1,5 @@
 ![docker forge](https://github.com/sabs21/forge-mod-dev-docker/assets/18126892/4308de19-b1e1-474a-8e02-3c2094733700)
-# Dockerized Minecraft Forge Mod Development
+# Containerized Minecraft Forge Mod Development
 A Minecraft Forge mod development environment that aims to make collaborating between developers easier.
 ## How it works
 ![forge-docker-mod-dev-diagram](https://github.com/sabs21/forge-mod-dev-docker/assets/18126892/cd2beef5-bd0f-423e-9c4a-b56dc4ea94fd)
